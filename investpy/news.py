@@ -4,6 +4,7 @@
 from datetime import datetime
 from random import choice
 from time import gmtime, localtime, strftime
+import cfscraper
 
 import pandas as pd
 import pytz
@@ -244,9 +245,10 @@ def economic_calendar(
 
     id_, last_id = 0, 0
     results = list()
+    scraper = cfscraper.create_scraper()
 
     while True:
-        req = requests.post(url, headers=headers, data=data)
+        req = scraper.post(url, headers=headers, data=data)
 
         root = fromstring(req.json()["data"])
         table = root.xpath(".//tr")

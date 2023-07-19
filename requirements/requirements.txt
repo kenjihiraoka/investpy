@@ -6,3 +6,4 @@ lxml>=4.4.1
 requests>=2.22.0
 pytz>=2019.3
 numpy>=1.21.2
+cfscrape==2.1.1
